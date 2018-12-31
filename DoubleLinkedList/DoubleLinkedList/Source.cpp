@@ -61,14 +61,12 @@ public:
 		int amount = this->size();
 		Node* temp;
 		float val=-FLT_MAX;
-		for (Node* itr = this; itr->next != nullptr; itr = itr->next) {
+		while (amount-2) {
 			val = -FLT_MAX;
 			find_max(val, temp, amount--);
 			temp->next->prev = temp->prev;
 			temp->prev->next = temp->next;
 			this->push_back(temp);
-			cout << endl;
-			this->show();
 		}
 	}
 
@@ -78,7 +76,7 @@ public:
 
 int main() {
 	Node* root=new Node(0);
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 1; i++) {
 		root->push_back(new Node((float)rand()));
 	}
 	root->show();
